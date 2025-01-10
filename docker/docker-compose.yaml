@@ -306,22 +306,22 @@ services:
       # - ssrf_proxy_network
       - default
 
-  # worker service
-  # The Celery worker for processing the queue.
-  worker:
-    image: langgenius/dify-api:0.13.2
-    restart: always
-    environment:
-      # Use the shared environment variables.
-      <<: *shared-api-worker-env
-      # Startup mode, 'worker' starts the Celery worker for processing the queue.
-      MODE: worker
-    volumes:
-      # Mount the storage directory to the container, for storing user files.
-      - ./volumes/app/storage:/app/api/storage
-    networks:
-      # - ssrf_proxy_network
-      - default
+  # # worker service
+  # # The Celery worker for processing the queue.
+  # worker:
+  #   image: langgenius/dify-api:0.13.2
+  #   restart: always
+  #   environment:
+  #     # Use the shared environment variables.
+  #     <<: *shared-api-worker-env
+  #     # Startup mode, 'worker' starts the Celery worker for processing the queue.
+  #     MODE: worker
+  #   volumes:
+  #     # Mount the storage directory to the container, for storing user files.
+  #     - ./volumes/app/storage:/app/api/storage
+  #   networks:
+  #     # - ssrf_proxy_network
+  #     - default
       
   # Frontend web application.
   web:
